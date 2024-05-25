@@ -34,6 +34,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,7 +53,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(16, 84);
+            this.button2.Location = new System.Drawing.Point(16, 93);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(103, 35);
             this.button2.TabIndex = 1;
@@ -74,7 +75,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(150, 84);
+            this.button4.Location = new System.Drawing.Point(150, 93);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(103, 35);
             this.button4.TabIndex = 3;
@@ -84,10 +85,11 @@
             // 
             // label1
             // 
+            this.label1.BackColor = System.Drawing.SystemColors.HighlightText;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Location = new System.Drawing.Point(286, 26);
+            this.label1.Location = new System.Drawing.Point(352, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(300, 93);
+            this.label1.Size = new System.Drawing.Size(214, 102);
             this.label1.TabIndex = 4;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
@@ -100,12 +102,23 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label2.Location = new System.Drawing.Point(696, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(150, 102);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "State: \n\n Q = { F1, F2, F3, F4 } \n € = { 0, 1 } \n q0.=F1 \n F = F4 \n {= 0, 1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.ClientSize = new System.Drawing.Size(874, 492);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button4);
@@ -127,6 +140,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

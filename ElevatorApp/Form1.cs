@@ -15,13 +15,13 @@ namespace ElevatorApp
         private int currentFloor = 1;
         private string currentState = "Stopped"; // Initial state
         private string imagesPath = @"C:\Users\martin aguila\source\repos\ElevatorApp\assets"; // Path to your images
-        private string imageState = "";
+        private string imageState = "main";
 
         public Form1()
         {
             InitializeComponent();
             UpdateStatus();
-            // DisplayDiagram();
+            DisplayDiagram();
         }
 
         private void UpdateStatus()
