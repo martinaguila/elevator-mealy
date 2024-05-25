@@ -14,16 +14,32 @@ namespace ElevatorApp
     {
         private int currentFloor = 1;
         private string currentState = "Stopped"; // Initial state
+        private string imagesPath = @"C:\Users\martin aguila\source\repos\ElevatorApp\assets"; // Path to your images
+        private string imageState = "";
 
         public Form1()
         {
             InitializeComponent();
             UpdateStatus();
+            // DisplayDiagram();
         }
 
         private void UpdateStatus()
         {
             label1.Text = $"Current Floor: {currentFloor}, State: {currentState}";
+        }
+
+        private void DisplayDiagram()
+        {
+            string imagePath = System.IO.Path.Combine(imagesPath, $"{imageState}.jpg");
+            if (System.IO.File.Exists(imagePath))
+            {
+                pictureBox1.Image = System.Drawing.Image.FromFile(imagePath);
+            }
+            else
+            {
+                MessageBox.Show($"Diagram image not found: {imagePath}");
+            }
         }
 
         // State: Moving Up
@@ -55,13 +71,33 @@ namespace ElevatorApp
         {
             if (currentState == "Stopped" || currentState == "Moving Down")
             {
+                currentFloor++;
                 if (currentFloor < 4)
                 {
                     MovingUp();
-                    currentFloor++;
                     UpdateStatus();
+
+                    if (currentFloor == 2)
+                    {
+                        imageState = "oneToTwo";
+                        DisplayDiagram();
+                    } else if (currentFloor == 3)
+                    {
+                        imageState = "twoToThree";
+                        DisplayDiagram();
+                    }
+                    else if (currentFloor == 4)
+                    {
+                        imageState = "threeToFour";
+                        DisplayDiagram();
+                    }
                 }
-                else
+                else if (currentFloor == 4)
+                {
+                    imageState = "threeToFour";
+                    DisplayDiagram();
+                }
+                else 
                 {
                     MessageBox.Show("Already at the top floor.");
                 }
@@ -77,11 +113,30 @@ namespace ElevatorApp
         {
             if (currentState == "Stopped" || currentState == "Moving Up")
             {
+                currentFloor--;
                 if (currentFloor > 1)
                 {
                     MovingDown();
-                    currentFloor--;
                     UpdateStatus();
+
+                    if (currentFloor == 3)
+                    {
+                        imageState = "fourToThree";
+                        DisplayDiagram();
+                    } else if (currentFloor == 2)
+                    {
+                        imageState = "threeToTwo";
+                        DisplayDiagram();
+                    } else if (currentFloor == 1)
+                    {
+                        imageState = "twoToOne";
+                        DisplayDiagram();
+                    }
+                }
+                else if (currentFloor == 1)
+                {
+                    imageState = "twoToOne";
+                    DisplayDiagram();
                 }
                 else
                 {
@@ -105,6 +160,16 @@ namespace ElevatorApp
         private void button4_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
